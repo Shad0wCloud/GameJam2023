@@ -5,37 +5,76 @@ using Cinemachine;
 
 public class HanoiskayTower : MonoBehaviour
 {
-    private CameraMove _cameraMoveScript;
-    [SerializeField] private CinemachineVirtualCamera _virtualCamera;
     private bool _isActive = false;
+    private bool _isReady = false;
 
     private Vector3 pointScreen;
     private Vector3 offset;
 
+    public Transform[] _positionOnTower;
+    private int _currentPosition;
+
+    [SerializeField] public GameObject[] _idEtalon;
+    private GameObject[] _idArray = { null, null, null, null, null, null, null};
+
+    [SerializeField] private Door _doorScript;
+
     private void Start()
     {
-        _cameraMoveScript = GameObject.FindGameObjectWithTag("Player").GetComponent<CameraMove>();
+        _currentPosition = 0;
     }
 
-    private void OnMouseDown()
+    public Vector3 TorPosotion(bool isStand, GameObject obj)
     {
-        pointScreen = Camera.main.WorldToScreenPoint(gameObject.transform.position);
-        offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, pointScreen.z));
-    }
-
-    private void OnMouseDrag()
-    {
-        Vector3 currentScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, pointScreen.z);
-        Vector3 currentPosition = Camera.main.ScreenToWorldPoint(currentScreenPoint);
-        transform.position = currentPosition;
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (isStand)
         {
-            _cameraMoveScript.SwitchToCameraForMission(_virtualCamera, !_isActive);
-            _isActive = !_isActive;
+            int i = 0;
+            foreach (GameObject iter in _idArray)
+            {
+                if (iter == null)
+                {
+                    _idArray[i] = obj;
+                    if (!_isReady) CheckArray();
+                    break;
+                }
+                i++;
+            }
+            return _positionOnTower[i].position;
+        }
+        else
+        {
+            for (int i = 6; i >= 0; i--)
+            {
+                Debug.Log(_idArray[i]);
+                if (_idArray[i] != null)
+                {
+                    _idArray[i].GetComponent<Tor>().MoveToTable();
+                    _idArray[i] = null;
+                    break;
+                }
+            }
+
+        }
+        return default;
+    }
+
+    public void CheckArray()
+    {
+        bool isRight = true;
+        for (int i = 0; i < 7; i++)
+        {
+            if (_idArray[i] != _idEtalon[i])
+            {
+                isRight = false;
+                break;
+            }
+        }
+
+        if (isRight)
+        {
+            _doorScript.Action();
+            _isReady = true;
         }
     }
+        
 }
