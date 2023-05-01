@@ -27,4 +27,6 @@ public class GroundChecer : MonoBehaviour
             _playerControllerScript._isGrpunded = false;
         }
     }
+
+
 }

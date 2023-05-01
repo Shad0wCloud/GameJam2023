@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Lever : MonoBehaviour
 {
+    [SerializeField] private bool _isLock = false;
     [SerializeField] private bool _isRight;
     [SerializeField] private bool _isNearPlayer;
     [SerializeField] private Animator _animator;
@@ -13,7 +14,7 @@ public class Lever : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" && !_isLock)
         {
             ButtonShow();
         }
@@ -21,7 +22,7 @@ public class Lever : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" && !_isLock)
         {
             ButtonHide();
         }
@@ -35,11 +36,14 @@ public class Lever : MonoBehaviour
 
     private void Update()
     {
-        if (_isNearPlayer)
+        if (!_isLock)
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (_isNearPlayer)
             {
-                LeverActivate();
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    LeverActivate();
+                }
             }
         }
     }
@@ -70,5 +74,10 @@ public class Lever : MonoBehaviour
             if (iter.GetComponent<Door>()) iter.GetComponent<Door>().Action();
             else if (iter.GetComponent<OffObject>()) iter.GetComponent<OffObject>().Action();
         }
+    }
+
+    public void UnLock()
+    {
+        _isLock = false;
     }
 }
