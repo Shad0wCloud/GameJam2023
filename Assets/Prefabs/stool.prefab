@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6572751982583205005}
   - component: {fileID: 5186496201678464144}
   - component: {fileID: 1367157494073278729}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: stool
   m_TagString: Untagged
   m_Icon: {fileID: 0}

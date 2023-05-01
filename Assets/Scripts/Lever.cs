@@ -68,6 +68,7 @@ public class Lever : MonoBehaviour
         foreach (GameObject iter in _targetObjects)
         {
             if (iter.GetComponent<Door>()) iter.GetComponent<Door>().Action();
+            else if (iter.GetComponent<OffObject>()) iter.GetComponent<OffObject>().Action();
         }
     }
 }

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8448632286671509725}
   - component: {fileID: 5905113754721409422}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HelperCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 5718396464469523599}
   - component: {fileID: 3914166994798551502}
   - component: {fileID: 6149352535299774445}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HelperCollider (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,7 +112,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7500370684954800711}
   - component: {fileID: 683139059384960450}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HelperCollider (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -156,7 +156,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5011821902831165918}
   - component: {fileID: 2217350237815052945}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HelperCollider (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -200,7 +200,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5613325611256579324}
   - component: {fileID: 7388228340079555004}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HelperCollider (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -245,7 +245,7 @@ GameObject:
   - component: {fileID: 8017500576900573861}
   - component: {fileID: 6407559998014678272}
   - component: {fileID: 9153793392658485706}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: crates_stacked
   m_TagString: Untagged
   m_Icon: {fileID: 0}

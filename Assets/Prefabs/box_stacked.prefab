@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6301437371228876524}
   - component: {fileID: 5871716352619593068}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HelperCollider (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 2371351321477987943}
   - component: {fileID: 1677415917586624962}
   - component: {fileID: 3504811692201002248}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: box_stacked
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,7 +146,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6535658567649160004}
   - component: {fileID: 6824891061124252300}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HelperCollider (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -190,7 +190,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6880632078731666736}
   - component: {fileID: 4758672600319950200}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HelperCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -234,7 +234,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7362307579000239947}
   - component: {fileID: 633751355609771655}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HelperCollider (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -278,7 +278,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1698203240843711372}
   - component: {fileID: 4678388581770750718}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HelperCollider (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -322,7 +322,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2793643064694958636}
   - component: {fileID: 8441856336310058506}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HelperCollider (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -366,7 +366,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3617444303047758341}
   - component: {fileID: 6692384992735996908}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HelperCollider (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -410,7 +410,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5597985959115176256}
   - component: {fileID: 8748666521495157479}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HelperCollider (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -454,7 +454,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7069211069095141065}
   - component: {fileID: 6082671800613998495}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HelperCollider (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -498,7 +498,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7587390576750020255}
   - component: {fileID: 3473634821360481194}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HelperCollider (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

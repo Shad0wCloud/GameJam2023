@@ -102,8 +102,6 @@ public class Enemy : MonoBehaviour
         {
             if (iter.CompareTag("Player"))
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-
                 Debug.Log("Damage");
             }
         }

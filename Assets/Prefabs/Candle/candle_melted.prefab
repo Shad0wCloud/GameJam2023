@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 968592784286578692}
   - component: {fileID: 3068593228710710478}
   - component: {fileID: 2474408969178785528}
+  - component: {fileID: 3404573402386028983}
   m_Layer: 0
   m_Name: candle_melted
   m_TagString: Untagged
@@ -97,6 +98,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.3343711, y: 0.70153946, z: 0.32929122}
   m_Center: {x: 0.000000014901161, y: 0.35076973, z: -0.0051190406}
+--- !u!114 &3404573402386028983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3572807203034705179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abe2eb7fda3709c4c98a73514d6b10b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _object: {fileID: 2247714431707831808}
+  _isActive: 1
 --- !u!1001 &3848462475321921182
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -162,6 +177,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2567ccd97b4b23c439a5ca23a21c5201, type: 3}
+--- !u!1 &2247714431707831808 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3051470664206454942, guid: 2567ccd97b4b23c439a5ca23a21c5201, type: 3}
+  m_PrefabInstance: {fileID: 3848462475321921182}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2247714431707831809 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3051470664206454943, guid: 2567ccd97b4b23c439a5ca23a21c5201, type: 3}

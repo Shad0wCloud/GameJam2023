@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8759438053920569901}
   - component: {fileID: 3717448558650933310}
   - component: {fileID: 4729478609222129007}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: keg
   m_TagString: Untagged
   m_Icon: {fileID: 0}

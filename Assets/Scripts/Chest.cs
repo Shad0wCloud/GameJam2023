@@ -11,6 +11,7 @@ public class Chest : MonoBehaviour
     private bool _isUse = true;
     private bool _isNearPlayer;
     [SerializeField] private bool _isClosed = false;
+    [SerializeField] private GameObject[] _targetObjects;
 
     private void Awake()
     {
@@ -82,6 +83,16 @@ public class Chest : MonoBehaviour
                 _isClosed = true;
                 ButtonHide();
             }
+        }
+    }
+
+    public void OtherAction()
+    {
+        foreach (GameObject iter in _targetObjects)
+        {
+            if (iter.GetComponent<Door>()) iter.GetComponent<Door>().Action();
+            else if (iter.GetComponent<OffObject>()) iter.GetComponent<OffObject>().Action();
+            else if (iter.GetComponent<AdvantGhost>()) iter.GetComponent<AdvantGhost>().Action();
         }
     }
 }
