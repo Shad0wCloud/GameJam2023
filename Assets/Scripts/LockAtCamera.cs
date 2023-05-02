@@ -14,5 +14,6 @@ public class LockAtCamera : MonoBehaviour
     private void Update()
     {
         transform.LookAt(_camera.transform);
+        Vector3 dir = _camera.transform.position - transform.position;
     }
 }

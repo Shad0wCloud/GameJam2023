@@ -73,6 +73,11 @@ public class Lever : MonoBehaviour
         {
             if (iter.GetComponent<Door>()) iter.GetComponent<Door>().Action();
             else if (iter.GetComponent<OffObject>()) iter.GetComponent<OffObject>().Action();
+            else if (iter.GetComponent<RoomManager>())
+            {
+                iter.GetComponent<RoomManager>().NewStage();
+                gameObject.SetActive(false);
+            }
         }
     }
 

@@ -5,24 +5,19 @@ using Cinemachine;
 
 public class HanoiskayTower : MonoBehaviour
 {
-    private bool _isActive = false;
     private bool _isReady = false;
 
     private Vector3 pointScreen;
     private Vector3 offset;
 
     public Transform[] _positionOnTower;
-    private int _currentPosition;
 
     [SerializeField] public GameObject[] _idEtalon;
     private GameObject[] _idArray = { null, null, null, null, null, null, null};
 
     [SerializeField] private Door _doorScript;
+    [SerializeField] private RoomManager _roomManagerScript;
 
-    private void Start()
-    {
-        _currentPosition = 0;
-    }
 
     public Vector3 TorPosotion(bool isStand, GameObject obj)
     {
@@ -73,6 +68,7 @@ public class HanoiskayTower : MonoBehaviour
         if (isRight)
         {
             _doorScript.Action();
+            _roomManagerScript.ActiveStuff(1, true);
             _isReady = true;
         }
     }

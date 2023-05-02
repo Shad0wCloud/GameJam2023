@@ -8,14 +8,12 @@ public class Tor : MonoBehaviour
     [SerializeField] private Material _material;
     [SerializeField] private Collider _triggerCollider;
     [SerializeField] private Collider _collider;
-    private float _dissolveCount;
 
     [SerializeField] private Transform _positionOnTable;
     [SerializeField] private HanoiskayTower _hanoiskayTowerScript;
     [SerializeField] private int _id;
 
     private bool _isNearPlayer;
-    private bool _isAction = false;
 
     private bool _isOnTable = false;
     private bool _isOnTower = false;
@@ -23,7 +21,6 @@ public class Tor : MonoBehaviour
     void Start()
     {
        // _animator = GetComponent<Animator>();
-        _dissolveCount = 1;
     //   _material = GetComponent<Material>();
         _material.SetFloat("Dissolve", -1f);
     }
@@ -116,7 +113,6 @@ public class Tor : MonoBehaviour
             _material.SetFloat("Dissolve", Mathf.Lerp(-0.1f, 0.1f, (currTime / time)));
 
             currTime += Time.deltaTime * 0.5f;
-            Debug.Log("+");
             yield return null;
         }
         while (currTime <= time);
@@ -134,7 +130,6 @@ public class Tor : MonoBehaviour
             _material.SetFloat("Dissolve", Mathf.Lerp(0.1f, -0.1f, (currTime / time)));
 
             currTime += Time.deltaTime * 0.5f;
-            Debug.Log("+");
             yield return null;
         }
         while (currTime <= time);
