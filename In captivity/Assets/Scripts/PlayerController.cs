@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform _groundChecer;
     [SerializeField] private float _groundChecerRange;
     [SerializeField] private float _jumpButtonGracePeriod;
+    [SerializeField] private RoomManager _roomManagerScript;
 
     private float _ySpeed;
     [SerializeField] public bool _isGrpunded;
@@ -30,6 +31,32 @@ public class PlayerController : MonoBehaviour
         _animator = GetComponent<Animator>();
 
         _originalStepOffset = _characterController.stepOffset;
+    }
+
+    private void OnEnable()
+    {
+        if (PlayerPrefs.HasKey("Stage"))
+        {
+            _roomManagerScript.SpawnPlayer(PlayerPrefs.GetInt("Stage"), transform);
+        }
+        else
+        {
+            _roomManagerScript.SpawnPlayer(0, transform);
+        }
+    }
+
+    public void SpawnPlayer()
+    {
+        _characterController.enabled = false;
+        transform.position = _roomManagerScript.SpawnPosition();
+        _characterController.enabled = true;
+    }
+
+    public void SpawnPlayer(Vector3 newPosition)
+    {
+        _characterController.enabled = false;
+        transform.position = newPosition;
+        _characterController.enabled = true;
     }
 
     private void FixedUpdate()
@@ -81,14 +108,14 @@ public class PlayerController : MonoBehaviour
 
         _isGrpunded = _characterController.isGrounded;
 
-     /*   if (Physics.Raycast(_groundChecer.position, Vector3.down, _groundChecerRange,_groundLayers))
-        {
-            _isGrpunded = true;
-        }
-        else
-        {
-            _isGrpunded = false;
-        } */
+        /*   if (Physics.Raycast(_groundChecer.position, Vector3.down, _groundChecerRange,_groundLayers))
+           {
+               _isGrpunded = true;
+           }
+           else
+           {
+               _isGrpunded = false;
+           } */
 
         float h = Input.GetAxis("Horizontal");
         float v = -Input.GetAxis("Vertical");

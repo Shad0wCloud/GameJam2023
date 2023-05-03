@@ -13,6 +13,7 @@ public class CameraMove : MonoBehaviour
     [SerializeField] private CinemachineVirtualCamera _temporaryCamera;
 
     [SerializeField] private LayerMask _groundLayerMask;
+    [SerializeField] private Transform _targetLokAt;
 
     private void Start()
     {
@@ -61,5 +62,11 @@ public class CameraMove : MonoBehaviour
         }
 
         activeCamera = targetCamera;
+        _targetLokAt.position = activeCamera.transform.position;
+    }
+
+    private void Update()
+    {
+        _targetLokAt.position = activeCamera.transform.position;
     }
 }

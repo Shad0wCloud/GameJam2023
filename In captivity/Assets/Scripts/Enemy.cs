@@ -6,7 +6,7 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private GameObject _player;
+    private GameObject _player;
 
     [SerializeField] private NavMeshAgent _agent;
     [SerializeField] private float _radiusView;
@@ -25,7 +25,7 @@ public class Enemy : MonoBehaviour
     private bool _isAttack;
 
 
-    private void Awake()
+    private void Start()
     {
         _animator = GetComponent<Animator>();
         _player = GameObject.FindGameObjectWithTag("Player");
