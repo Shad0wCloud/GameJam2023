@@ -9,10 +9,16 @@ public class RoomManager : MonoBehaviour
     [SerializeField] private DayLightManager _dayLightManager;
     [SerializeField] private GameObject[] _barrierStage;
     [SerializeField] private GameObject[] _stateStaff;
+    [SerializeField] private GameObject[] _stateStaffEnableOff;
     [SerializeField] private Transform[] _spawnPosition;
+    [SerializeField] private int[] _scaleStageOnStage;
+    private GameObject _player;
+    
 
     private void Start()
     {
+        _player = GameObject.FindGameObjectWithTag("Player");
+
         if (PlayerPrefs.HasKey("Stage"))
         {
             _currentStage = PlayerPrefs.GetInt("Stage");
@@ -24,32 +30,50 @@ public class RoomManager : MonoBehaviour
         }
 
 
+        SelectStage(_currentStage);
+    }
+
+    public void SelectStage(int stage)
+    {
         for (int i = 0; i < _stateStaff.Length; i++)
         {
-            if (i != _currentStage)
+            if ((i == 0 && stage != 0) || (stage == 0 && i != 0))
             {
                 _stateStaff[i].SetActive(false);
             }
             else
             {
                 _stateStaff[i].SetActive(true);
-                GameObject.FindGameObjectWithTag("Player").transform.position = _spawnPosition[i].position;
-                Debug.Log(_spawnPosition[i]);
             }
+        }
+
+        _dayLightManager.StageNumber(stage);
+        _currentStage = stage;
+        PlayerPrefs.SetInt("Stage", stage);
+
+        for (int i = 0; i < _barrierStage.Length; i++)
+        {
+            if (i < stage)
+            {
+                _barrierStage[i].SetActive(false);
+                if (_stateStaffEnableOff[i] != null) _stateStaffEnableOff[i].SetActive(false);
+            }
+            else break;
         }
     }
 
     public void NewStage()
     {
         _dayLightManager.NewStage();
-        _barrierStage[_currentStage].SetActive(false);
         _currentStage += 1;
+        SelectStage(_currentStage);
+        _player.GetComponent<PlayerScale>().NewScale();
         PlayerPrefs.SetInt("Stage", _currentStage);
     }
 
     private void SpawnPlayer(int positionNumber)
     {
-        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().SpawnPlayer(_spawnPosition[positionNumber].position);
+        _player.GetComponent<PlayerController>().SpawnPlayer(_spawnPosition[positionNumber].position);
         Debug.Log(_spawnPosition[positionNumber]);
     }
 
@@ -58,9 +82,15 @@ public class RoomManager : MonoBehaviour
         int posNumber;
         if (PlayerPrefs.HasKey("Stage")) posNumber = PlayerPrefs.GetInt("Stage");
         else posNumber = 0;
-        Debug.Log(posNumber);
         return _spawnPosition[posNumber].position;
+    }
 
+    public int StageScale()
+    {
+        int scaleNumber;
+        if (PlayerPrefs.HasKey("Stage")) scaleNumber = PlayerPrefs.GetInt("Stage");
+        else scaleNumber = 0;
+        return _scaleStageOnStage[scaleNumber];
     }
 
     public void WriteStage(int stage)
@@ -85,5 +115,24 @@ public class RoomManager : MonoBehaviour
             PlayerPrefs.DeleteKey("Stage");
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
+
+        if (Input.GetKeyDown(KeyCode.Alpha0))
+        {
+            PlayerPrefs.SetInt("Stage", 0);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+        
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            PlayerPrefs.SetInt("Stage", 1);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+        
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            PlayerPrefs.SetInt("Stage", 2);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+
     }
 }

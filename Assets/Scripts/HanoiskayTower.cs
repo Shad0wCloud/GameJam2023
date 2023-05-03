@@ -69,6 +69,7 @@ public class HanoiskayTower : MonoBehaviour
         {
             _doorScript.Action();
             _roomManagerScript.ActiveStuff(1, true);
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScale>().NewScale();
             _isReady = true;
         }
     }

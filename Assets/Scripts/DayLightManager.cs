@@ -27,6 +27,20 @@ public class DayLightManager : MonoBehaviour
         }
     }
 
+    public void StageNumber(int number)
+    {
+        if (number <= 1)
+        {
+            _directionLight.color = Color.black;
+            _dayState = number;
+        }
+        else if(number < _StageColor.Length)
+        {
+            StartCoroutine(InterpolationLight(_StageColor[number-1], _StageColor[number]));
+            _dayState = number;
+        }
+    }
+
     private IEnumerator InterpolationLight(Color startColor, Color endColor)
     {
         float currTime = 0f;

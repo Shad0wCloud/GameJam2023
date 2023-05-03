@@ -37,6 +37,8 @@ public class PlayerController : MonoBehaviour
     private void OnEnable()
     {
         SpawnPlayer();
+        GetComponent<PlayerScale>().ScaleOnSpawn(_roomManagerScript.StageScale());
+        Debug.Log(_roomManagerScript.StageScale());
     }
 
     private void Update()

@@ -21,6 +21,7 @@ public class GhostEnd : MonoBehaviour
         {
             if (iter.GetComponent<Door>()) iter.GetComponent<Door>().Action();
             else if (iter.GetComponent<OffObject>()) iter.GetComponent<OffObject>().Action();
+            else if (iter.GetComponent<PlayerScale>()) iter.GetComponent<PlayerScale>().NewScale();
         }
 
         _leverObject.UnLock();

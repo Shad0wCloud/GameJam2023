@@ -18,10 +18,13 @@ public class Tor : MonoBehaviour
     private bool _isOnTable = false;
     private bool _isOnTower = false;
 
+    private PlayerScale _playerScaleScript;
+
     void Start()
     {
-       // _animator = GetComponent<Animator>();
-    //   _material = GetComponent<Material>();
+        // _animator = GetComponent<Animator>();
+        //   _material = GetComponent<Material>();
+        _playerScaleScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScale>();
         _material.SetFloat("Dissolve", -1f);
     }
 
@@ -77,6 +80,7 @@ public class Tor : MonoBehaviour
         ButtonHide();
         _triggerCollider.enabled = false;
         if (GetComponent<Outline>()) GetComponent<Outline>().enabled = false;
+        _playerScaleScript.NewScale();
         StartCoroutine(Dissolve(1f));
     }    
 

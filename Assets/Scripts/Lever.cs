@@ -9,6 +9,8 @@ public class Lever : MonoBehaviour
     [SerializeField] private bool _isNearPlayer;
     [SerializeField] private Animator _animator;
     [SerializeField] private Animator _canvasAnimator;
+    [SerializeField] private bool _isOneUse;
+    private bool _isUse;
 
     [SerializeField] private GameObject[] _targetObjects;
 
@@ -76,8 +78,14 @@ public class Lever : MonoBehaviour
             else if (iter.GetComponent<RoomManager>())
             {
                 iter.GetComponent<RoomManager>().NewStage();
-                gameObject.SetActive(false);
+               // gameObject.SetActive(false);
             }
+        }
+
+        if(_isOneUse)
+        {
+            _isLock = true;
+            ButtonHide();
         }
     }
 

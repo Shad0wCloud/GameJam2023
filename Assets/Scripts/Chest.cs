@@ -94,6 +94,7 @@ public class Chest : MonoBehaviour
             else if (iter.GetComponent<OffObject>()) iter.GetComponent<OffObject>().Action();
             else if (iter.GetComponent<AdvantGhost>()) iter.GetComponent<AdvantGhost>().Action();
             else if (iter.GetComponent<ActiveOutline>()) iter.GetComponent<ActiveOutline>().Action();
+            else if (iter.GetComponent<PlayerScale>()) iter.GetComponent<PlayerScale>().NewScale();
         }
     }
 }

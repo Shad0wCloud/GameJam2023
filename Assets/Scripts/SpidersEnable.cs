@@ -32,6 +32,7 @@ public class SpidersEnable : MonoBehaviour
             _animator.SetTrigger("Show");
             _ghost.SetActive(false);
             _ghostEnd.SetActive(true);
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScale>().NewScale();
             gameObject.SetActive(false);
         }
         else

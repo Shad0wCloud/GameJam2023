@@ -14,6 +14,7 @@ public class Diactive1State : MonoBehaviour
             _doorScript.Action();
             _roomManagerScript.ActiveStuff(0, false);
             _roomManagerScript.WriteStage(1);
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScale>().NewScale();
             Destroy(gameObject);
         }
     }
