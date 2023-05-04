@@ -6,7 +6,7 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private GameObject _player;
+    private GameObject _player;
 
     [SerializeField] private NavMeshAgent _agent;
     [SerializeField] private float _radiusView;
