@@ -10,6 +10,7 @@ public class Lever : MonoBehaviour
     [SerializeField] private Animator _animator;
     [SerializeField] private Animator _canvasAnimator;
     [SerializeField] private bool _isOneUse;
+    [SerializeField] private int _id;
     private bool _isUse;
 
     [SerializeField] private GameObject[] _targetObjects;
@@ -75,6 +76,9 @@ public class Lever : MonoBehaviour
         {
             if (iter.GetComponent<Door>()) iter.GetComponent<Door>().Action();
             else if (iter.GetComponent<OffObject>()) iter.GetComponent<OffObject>().Action();
+            else if (iter.GetComponent<FlamePit>()) iter.GetComponent<FlamePit>().Action();
+            else if (iter.GetComponent<FirePitUnderDoor>()) iter.GetComponent<FirePitUnderDoor>().ActionNumber(_id);
+            else if (iter.GetComponent<ActionWork>()) iter.GetComponent<ActionWork>().WorkOff();
             else if (iter.GetComponent<RoomManager>())
             {
                 iter.GetComponent<RoomManager>().NewStage();
