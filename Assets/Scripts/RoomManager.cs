@@ -13,6 +13,7 @@ public class RoomManager : MonoBehaviour
     [SerializeField] private Transform[] _spawnPosition;
     [SerializeField] private int[] _scaleStageOnStage;
     private GameObject _player;
+    [SerializeField] private Dialog _dialogScript;
     
 
     private void Start()
@@ -60,6 +61,8 @@ public class RoomManager : MonoBehaviour
             }
             else break;
         }
+
+        StartCoroutine(CooldownToDialog());
     }
 
     public void NewStage()
@@ -108,8 +111,9 @@ public class RoomManager : MonoBehaviour
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape)) Application.Quit();
-        if (Input.GetKeyDown(KeyCode.P) && Time.timeScale != 0f) Time.timeScale = 0f;
-        else Time.timeScale = 1f;
+        if (Input.GetKeyDown(KeyCode.P))
+            if (Time.timeScale != 0f) Time.timeScale = 0f;
+            else Time.timeScale = 1f;
         if (Input.GetKeyDown(KeyCode.R))
         {
             PlayerPrefs.DeleteKey("Stage");
@@ -133,6 +137,11 @@ public class RoomManager : MonoBehaviour
             PlayerPrefs.SetInt("Stage", 2);
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
+    }
 
+    private IEnumerator CooldownToDialog()
+    {
+        yield return new WaitForSeconds(3f);
+        if (_currentStage == 0) _dialogScript.StartDialog(0);
     }
 }

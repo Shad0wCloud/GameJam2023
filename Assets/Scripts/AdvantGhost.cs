@@ -24,7 +24,6 @@ public class AdvantGhost : MonoBehaviour
 
     public void EnabledComponents()
     {
-        Debug.Log("++");
         _collider.enabled = true;
         _agent.enabled = true;
         _ghostSctipt.enabled = true;

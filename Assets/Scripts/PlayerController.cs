@@ -25,6 +25,8 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private RoomManager _roomManagerScript;
 
+    public bool isCanMove = true;
+
     private void Awake()
     {
         //    _rigidbody = GetComponent<Rigidbody>();
@@ -78,8 +80,12 @@ public class PlayerController : MonoBehaviour
         }
         _animator.SetFloat("speed", inputMagnitude, 0.05f, Time.deltaTime);
 
-        float speed = inputMagnitude * _speedWalk;
-        movmentDirections.Normalize();
+        float speed = 0f;
+        if (isCanMove)
+        {
+            speed = inputMagnitude * _speedWalk;
+            movmentDirections.Normalize();
+        }
 
         _ySpeed += Physics.gravity.y * Time.deltaTime;
 

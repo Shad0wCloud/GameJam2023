@@ -21,6 +21,7 @@ public class Ghost : MonoBehaviour
     [SerializeField] private Transform _attackPoint;
     [SerializeField] private float _attackRange;
     [SerializeField] private LayerMask _layerMask;
+    [SerializeField] private Dialog _dialog;
 
     private Coroutine _cooldownCorutine;
 
@@ -109,5 +110,10 @@ public class Ghost : MonoBehaviour
             }
         }
         _isAttack = false;
+    }
+
+    public void StartingDialog()
+    {
+        _dialog.StartDialog(3);
     }
 }

@@ -9,6 +9,8 @@ public class SpidersEnable : MonoBehaviour
     [SerializeField] private bool _isActive;
     [SerializeField] private GameObject _ghost;
     [SerializeField] private GameObject _ghostEnd;
+    [SerializeField] private Dialog _dialogScript;
+    [SerializeField] private GameObject _triggerDialogGhostEnd;
 
 
     private void Start()
@@ -33,6 +35,8 @@ public class SpidersEnable : MonoBehaviour
             _ghost.SetActive(false);
             _ghostEnd.SetActive(true);
             GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScale>().NewScale();
+            _dialogScript.StartDialog(4);
+            _triggerDialogGhostEnd.SetActive(true);
             gameObject.SetActive(false);
         }
         else

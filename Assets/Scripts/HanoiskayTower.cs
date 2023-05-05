@@ -17,6 +17,7 @@ public class HanoiskayTower : MonoBehaviour
 
     [SerializeField] private Door _doorScript;
     [SerializeField] private RoomManager _roomManagerScript;
+    [SerializeField] private Dialog _dialogScript;
 
 
     public Vector3 TorPosotion(bool isStand, GameObject obj)
@@ -71,6 +72,7 @@ public class HanoiskayTower : MonoBehaviour
             _roomManagerScript.ActiveStuff(1, true);
             GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScale>().NewScale();
             _isReady = true;
+            _dialogScript.StartDialog(1);
         }
     }
         
