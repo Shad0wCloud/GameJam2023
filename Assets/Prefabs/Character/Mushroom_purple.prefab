@@ -486,7 +486,7 @@ GameObject:
   - component: {fileID: 6354262414489071296}
   - component: {fileID: 6891746041068053325}
   m_Layer: 0
-  m_Name: mushroom
+  m_Name: Mushroom_purple
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
