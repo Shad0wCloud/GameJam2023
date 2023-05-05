@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9bfe25b006dda57408194b31ed86a3b4
+guid: 84c104fce05de294394aa126c7cea403
 ModelImporter:
   serializedVersion: 21100
   internalIDToNameTable:
@@ -26,7 +26,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Tribal_Main.002
-    second: {fileID: 2100000, guid: 94eb75d7c94bbd942810bbab111d9501, type: 2}
+    second: {fileID: 2100000, guid: b01c5e34cc01d8b4f920dd4adafaf9af, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -66,7 +66,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -211,7 +211,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0

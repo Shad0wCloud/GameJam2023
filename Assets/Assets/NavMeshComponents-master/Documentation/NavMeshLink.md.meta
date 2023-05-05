@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Assets/NavMeshComponents-master/Documentation/NavMeshLink.md.meta
 guid: 37ee3b723ea10f24fb5c3cb04185d117
+========
+guid: 6ab319d8c9f540748958f833fd703a4f
+>>>>>>>> origin/G4-colored-mushrooms:Assets/Assets/NavMeshComponents-master/Documentation/ConnectingSurfaces.md.meta
 TextScriptImporter:
   externalObjects: {}
   userData: 
