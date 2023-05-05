@@ -16,13 +16,18 @@ public class Bee : MonoBehaviour
     [SerializeField] private List<Transform> _targets;
     private int _currentTarget;
 
+    private Transform _playerTransform;
+
 
     private bool _isAttack;
+
+    public bool isPlayerGo;
+    public bool isInRoom;
 
 
     private void Awake()
     {
-        _animator = GetComponent<Animator>();
+        _playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
 
         _agent.speed = _speed;
         _agent.stoppingDistance = _stoppingDistanse;
@@ -31,11 +36,21 @@ public class Bee : MonoBehaviour
 
     private void Update()
     {
-        if (Vector3.Distance(_agent.transform.position, _agent.pathEndPosition) < 0.1f || _currentTarget < 0)
+        if (isInRoom)
         {
-
-            NewTarget();
-        }        
+            if (Vector3.Distance(_agent.transform.position, _agent.pathEndPosition) < 0.1f || _currentTarget < 0)
+            {
+                NewTarget();
+            }  
+        }
+        else
+        {
+            if (isPlayerGo)
+            {
+                PlayerDestination();
+            }
+        }
+      
 
         _animator.SetFloat("Speed", _agent.speed, 0.05f, Time.deltaTime);
     }
@@ -46,5 +61,18 @@ public class Bee : MonoBehaviour
         _agent.speed = _speed;
         _agent.stoppingDistance = 0f;
         _agent.SetDestination(_targets[_currentTarget].position);
+    }
+
+    private void PlayerDestination()
+    {
+        _agent.speed = _speed;
+        _agent.stoppingDistance = 1f;
+        _agent.SetDestination(_playerTransform.position);
+    }
+
+    public void Action()
+    {
+        if (isPlayerGo && !isInRoom) isInRoom = true;
+        else if (!isPlayerGo) isPlayerGo = true;
     }
 }

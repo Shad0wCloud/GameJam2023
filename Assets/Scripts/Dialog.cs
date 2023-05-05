@@ -172,7 +172,7 @@ public class Dialog : MonoBehaviour
 
             if (_isGhost) StartCoroutine(Timer());
             if (_temporaryBook != null) _temporaryBook.isRead = false;
-            _temporaryBook = null;
+            _temporaryBook = null;  
         }
     }
 
