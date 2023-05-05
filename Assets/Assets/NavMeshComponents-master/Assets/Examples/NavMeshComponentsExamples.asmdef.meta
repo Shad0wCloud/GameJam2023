@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Assets/NavMeshComponents-master/Assets/Examples/NavMeshComponentsExamples.asmdef.meta
 guid: 62b574997e92efd41a8a1109157a0cb5
+========
+guid: 86c9d8e67265f41469be06142c397d17
+>>>>>>>> origin/G4-colored-mushrooms:Assets/Assets/NavMeshComponents-master/Assets/NavMeshComponents/Editor/NavMeshComponentsEditor.asmdef.meta
 AssemblyDefinitionImporter:
   externalObjects: {}
   userData: 

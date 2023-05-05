@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Assets/ShaderGraph_Dissolve/readme.pdf.meta
 guid: b9cb89fa49120a54b959c0c609f54e3d
+========
+guid: 0a539a7e852df644496f2a0e6151c727
+>>>>>>>> origin/G4-colored-mushrooms:Assets/Assets/ShaderGraph_Dissolve/URP/URP Samples.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
