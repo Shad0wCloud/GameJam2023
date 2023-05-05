@@ -30,7 +30,32 @@ ModelImporter:
   - first:
       74: -8174297497461417188
     second: CharacterArmature|Yes
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cat_Main
+    second: {fileID: 2100000, guid: eb2e030d8ab0c834e9e47acefd0815d7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cat_Secondary
+    second: {fileID: 2100000, guid: 2de927024cdc6a74593ed58e38e03239, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ears
+    second: {fileID: 2100000, guid: ec65356ed12c7514aab226264028d944, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eye_Black
+    second: {fileID: 2100000, guid: 67c28001c62cc9646ac17a1c1c1554f2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eye_White
+    second: {fileID: 2100000, guid: e5c97fe9fb4274947aa799f980947b02, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
