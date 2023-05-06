@@ -10,5 +10,6 @@ public class TriggerDialog : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player")) _dialogScript.StartDialog(_numberDialog);
+        Destroy(this.gameObject);
     }
 }

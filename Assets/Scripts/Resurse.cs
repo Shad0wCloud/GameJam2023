@@ -5,7 +5,8 @@ using UnityEngine;
 public enum ResurseType
 {
     Honeycombs,
-    Egg
+    Egg,
+    Soup
 }
 
 public class Resurse : MonoBehaviour

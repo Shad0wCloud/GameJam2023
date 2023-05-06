@@ -63,7 +63,8 @@ public class RoomManager : MonoBehaviour
         }
 
         if (stage == 0) StartCoroutine(CooldownToDialog());
-        else if (stage == 4) GetComponent<Stage3Start>().Start3Stage();
+        else if (stage >= 4) GetComponent<Stage3Start>().Start3Stage();
+        if (stage >= 5) GetComponent<StartStage4>().Start4Stage();
     }
 
     public void NewStage()
@@ -149,6 +150,13 @@ public class RoomManager : MonoBehaviour
             PlayerPrefs.SetInt("Stage", 4);
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
+                
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            PlayerPrefs.SetInt("Stage", 5);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+
     }
 
     private IEnumerator CooldownToDialog()
