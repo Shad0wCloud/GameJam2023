@@ -21,6 +21,9 @@ public class Resurse : MonoBehaviour
     private void Start()
     {
         _playerInventoryScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInventory>();
+
+        if (GetComponent<Outline>()) _outlineScript = GetComponent<Outline>();
+        StartCoroutine(OutlineOn());
     }
 
     private void OnTriggerEnter(Collider other)
@@ -73,5 +76,31 @@ public class Resurse : MonoBehaviour
         }
     }
 
+    private IEnumerator OutlineOn()
+    {
+        float currTime = 0f;
+        do
+        {
+            _outlineScript.OutlineWidth = Mathf.Lerp(1f, 6f, (currTime / 1));
 
+            currTime += Time.deltaTime * 0.5f;
+            yield return null;
+        }
+        while (currTime <= 1);
+        StartCoroutine(OutlineOff());
+    }
+
+    private IEnumerator OutlineOff()
+    {
+        float currTime = 0f;
+        do
+        {
+            _outlineScript.OutlineWidth = Mathf.Lerp(6f, 1f, (currTime / 1));
+
+            currTime += Time.deltaTime * 0.5f;
+            yield return null;
+        }
+        while (currTime <= 1);
+        StartCoroutine(OutlineOn());
+    }
 }
