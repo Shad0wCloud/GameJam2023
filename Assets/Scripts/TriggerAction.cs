@@ -35,6 +35,12 @@ public class TriggerAction : MonoBehaviour
 
     private void ActionThisObject(GameObject obj)
     {
+        Debug.Log(obj.name);
         if (obj.GetComponent<Bee>()) obj.GetComponent<Bee>().Action();
+
+        if (_isOneUse)
+        {
+            Destroy(this.gameObject);
+        }
     }
 }

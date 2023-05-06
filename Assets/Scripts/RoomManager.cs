@@ -116,7 +116,6 @@ public class RoomManager : MonoBehaviour
             else Time.timeScale = 1f;
         if (Input.GetKeyDown(KeyCode.R))
         {
-            PlayerPrefs.DeleteKey("Stage");
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
@@ -135,6 +134,12 @@ public class RoomManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             PlayerPrefs.SetInt("Stage", 2);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+        
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            PlayerPrefs.SetInt("Stage", 3);
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
