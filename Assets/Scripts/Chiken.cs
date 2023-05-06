@@ -24,6 +24,7 @@ public class Chiken : MonoBehaviour
 
     public bool isPlayerGo;
     public bool isInRoom;
+    public int id;
 
     private NavMeshPath _path;
 

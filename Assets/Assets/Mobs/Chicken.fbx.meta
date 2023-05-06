@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 79708732c22dabf47a48436cf98d71bb
+guid: 4c15e2975f19fe14b91eec0b1a21d703
 ModelImporter:
   serializedVersion: 21100
   internalIDToNameTable:
@@ -30,7 +30,32 @@ ModelImporter:
   - first:
       74: -8174297497461417188
     second: Yes
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Beak
+    second: {fileID: 2100000, guid: 2f21e4dcb523291499977078a816d699, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Chicken_Main
+    second: {fileID: 2100000, guid: 06a4194dd48cf734a894346f43c65af5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Chicken_Red
+    second: {fileID: 2100000, guid: dd903c5d910fbd84fb17d62fcc1d1d4f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eye_Black
+    second: {fileID: 2100000, guid: 6c9d9ddc51903d54988237482ce5d3bc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eye_White
+    second: {fileID: 2100000, guid: d5dfe31d0ff0c294d9e5031ad8c16e7a, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -70,7 +95,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0

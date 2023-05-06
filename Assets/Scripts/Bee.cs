@@ -16,6 +16,7 @@ public class Bee : MonoBehaviour
     private int _currentTarget;
 
     private Transform _playerTransform;
+    public int id;
 
 
     private bool _isAttack;

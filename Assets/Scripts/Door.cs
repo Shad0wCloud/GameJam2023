@@ -5,15 +5,9 @@ using UnityEngine;
 public class Door : MonoBehaviour
 {
     [SerializeField] private bool _isOpened;
+    [SerializeField] private bool _isWork = true;
+    [SerializeField] private bool _isOneUse = false;
     private Animator _animator;
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            Action();
-        }
-    }
 
     private void Awake()
     {
@@ -24,9 +18,14 @@ public class Door : MonoBehaviour
 
     public void Action()
     {
-        if (_isOpened) _animator.SetBool("isOpen", false);
-        else _animator.SetBool("isOpen", true);
-        _isOpened = !_isOpened;
+        if (_isWork)
+        {
+            if (_isOpened) _animator.SetBool("isOpen", false);
+            else _animator.SetBool("isOpen", true);
+            _isOpened = !_isOpened;
+        }
+
+        if (_isOneUse) _isWork = false;
     }
 
 

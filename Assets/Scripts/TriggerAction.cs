@@ -8,6 +8,7 @@ public class TriggerAction : MonoBehaviour
     [SerializeField] private bool _isOneUse;
 
     [SerializeField] private bool _isThisObject;
+    [SerializeField] private MobsManager _mobsManagerScript;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -35,8 +36,17 @@ public class TriggerAction : MonoBehaviour
 
     private void ActionThisObject(GameObject obj)
     {
-        if (obj.GetComponent<Bee>()) obj.GetComponent<Bee>().Action();
-        else if (obj.GetComponent<Chiken>()) obj.GetComponent<Chiken>().Action();
+        if (obj.GetComponent<Bee>())
+        {
+            obj.GetComponent<Bee>().Action();
+            _mobsManagerScript.ActionBee(obj.GetComponent<Bee>());
+        }
+        else if (obj.GetComponent<Chiken>())
+        {
+            obj.GetComponent<Chiken>().Action();
+            _mobsManagerScript.ActionChecken(obj.GetComponent<Chiken>());
+        }
+
 
         if (_isOneUse)
         {
