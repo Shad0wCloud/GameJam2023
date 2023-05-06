@@ -6,6 +6,7 @@ public class SpawnHive : MonoBehaviour
 {
     [SerializeField] private GameObject _hive;
     [SerializeField] private Transform[] _pointsSpawn;
+    [SerializeField] private Chiken[] _chickenScript;
 
     [SerializeField] private int _activeHive;
     [SerializeField] private int _coolldownLittle;
@@ -28,6 +29,18 @@ public class SpawnHive : MonoBehaviour
         newHive.transform.localRotation = Quaternion.Euler(0, randomRot, 0);
 
         StartCoroutine(Cooldawn());
+    }
+
+    public void DestroyHive()
+    {
+        _activeHive--;
+        foreach (Chiken iter in _chickenScript)
+        {
+            iter.DestroyHive();
+        }
+
+        int rangomChicken = Random.Range(0, _chickenScript.Length);
+        _chickenScript[rangomChicken].GiveEgg();
     }
 
     private IEnumerator Cooldawn()

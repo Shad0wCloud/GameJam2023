@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 995032754921233146}
   m_Layer: 0
   m_Name: Hive
-  m_TagString: Untagged
+  m_TagString: Hive
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48,6 +48,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _honeycombs: {fileID: 8725509281855354364, guid: 4708d16b92413984199f36429155f396, type: 3}
+  _maxHp: 100
+  _hp: 100
   _pointSpawn: {fileID: 995032755600624699}
   _coolldownLittle: 10
   _coolldownBig: 30

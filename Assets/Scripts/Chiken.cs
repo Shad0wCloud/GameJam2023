@@ -7,6 +7,10 @@ public class Chiken : MonoBehaviour
 {
     [SerializeField] private NavMeshAgent _agent;
     [SerializeField] private float _radiusView;
+    [SerializeField] private float _radiusViewHive;
+    private Transform _targetAttack;
+    [SerializeField] private float _attackRange;
+    [SerializeField] private float _damage;
     [SerializeField] private float _speed;
     [SerializeField] private float _stoppingDistanse;
 
@@ -18,6 +22,7 @@ public class Chiken : MonoBehaviour
     private int _currentTarget;
 
     private Transform _playerTransform;
+    [SerializeField] private GameObject _egg;
 
 
     private bool _isAttack;
@@ -68,9 +73,35 @@ public class Chiken : MonoBehaviour
             isPlayerGo = false;
             if (isInRoom)
             {
-                if (Vector3.Distance(_agent.transform.position, _agent.pathEndPosition) < 0.1f || _currentTarget < 0)
+                if (_targetAttack)
                 {
-                    NewTarget();
+                    if (Vector3.Distance(transform.position, _targetAttack.position) < _attackRange) _animator.SetBool("Attack", true);
+                    else _animator.SetBool("Attack", false);
+                }
+                else
+                {
+                    _animator.SetBool("Attack", false);
+
+                    if (GameObject.FindGameObjectWithTag("Hive") != null)
+                    {
+                        GameObject[] hives = GameObject.FindGameObjectsWithTag("Hive");
+                        Transform target = null;
+                        float range = 10000f;
+                        foreach (GameObject iter in hives)
+                        {
+                            float dist = Vector3.Distance(transform.position, iter.transform.position);
+                            if (dist < _radiusViewHive && dist < range) target = iter.transform;
+                        }
+
+                        if (target != null) NewTargetHive(target);
+                        else if (Vector3.Distance(_agent.transform.position, _agent.pathEndPosition) < 0.1f || _currentTarget < 0) NewTarget();
+
+                    }
+                    else if (Vector3.Distance(_agent.transform.position, _agent.pathEndPosition) < 0.1f || _currentTarget < 0)
+                    {
+                        NewTarget();
+                        _targetAttack = null;
+                    }
                 }
             }
             else
@@ -78,6 +109,8 @@ public class Chiken : MonoBehaviour
                 if (Vector3.Distance(_agent.transform.position, _agent.pathEndPosition) < 0.1f || _currentTarget < 0)
                 {
                     NewTargetOnPlate();
+                    _targetAttack = null;
+
                 }
             }
         }
@@ -91,6 +124,14 @@ public class Chiken : MonoBehaviour
         _agent.speed = _speed;
         _agent.stoppingDistance = 0f;
         _agent.SetDestination(_targets[_currentTarget].position);
+    }
+    
+    private void NewTargetHive(Transform target)
+    {
+        _agent.speed = _speed * 2;
+        _agent.stoppingDistance = _attackRange - 0.1f;
+        _agent.SetDestination(target.position);
+        _targetAttack = target;
     }
 
     private void NewTargetOnPlate()
@@ -106,6 +147,7 @@ public class Chiken : MonoBehaviour
         _agent.speed = _speed * 2;
         _agent.stoppingDistance = 0f;
         _agent.SetDestination(dir);
+        _targetAttack = null;
     }
 
     private void PlayerDestination()
@@ -118,5 +160,25 @@ public class Chiken : MonoBehaviour
     public void Action()
     {
         if (!isInRoom) isInRoom = true;
+    }
+
+    public void Attack()
+    {
+        if (_targetAttack) if (_targetAttack.GetComponent<Hive>()) _targetAttack.GetComponent<Hive>().TakeDamage(_damage);
+    }
+
+    public void DestroyHive()
+    {
+        _targetAttack = null;
+    }
+
+    public void GiveEgg()
+    {
+        GameObject newObj = Instantiate(_egg);
+        newObj.transform.SetParent(transform);
+        newObj.transform.localPosition = Vector3.zero;
+        newObj.transform.localRotation = Quaternion.identity;
+        newObj.transform.SetParent(null);
+
     }
 }
