@@ -51,13 +51,6 @@ public class Dialog : MonoBehaviour
                 SkipText();
             }
         }
-
-        if (!_isActive)
-        {
-            if (Input.GetKey(KeyCode.X)) StartDialog(0);
-            if (Input.GetKey(KeyCode.C)) StartDialog(1);
-            if (Input.GetKey(KeyCode.V)) StartDialog(2);
-        }
     }
 
     public void StartDialog(int numberReplic)

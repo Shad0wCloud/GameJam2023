@@ -5,7 +5,6 @@ using UnityEngine.AI;
 
 public class Bee : MonoBehaviour
 {
-
     [SerializeField] private NavMeshAgent _agent;
     [SerializeField] private float _radiusView;
     [SerializeField] private float _speed;
@@ -17,6 +16,7 @@ public class Bee : MonoBehaviour
     private int _currentTarget;
 
     private Transform _playerTransform;
+    public int id;
 
 
     private bool _isAttack;
