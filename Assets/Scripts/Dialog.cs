@@ -18,6 +18,15 @@ public class Dialog : MonoBehaviour
     [SerializeField] private string[] _replics10;
     [SerializeField] private string[] _replics11;
     [SerializeField] private string[] _replics12;
+    [SerializeField] private string[] _replics13;
+    [SerializeField] private string[] _replics14;
+    [SerializeField] private string[] _replics15;
+    [SerializeField] private string[] _replics16;
+    [SerializeField] private string[] _replics17;
+    [SerializeField] private string[] _replics18;
+    [SerializeField] private string[] _replics19;
+    [SerializeField] private string[] _replics20;
+    [SerializeField] private string[] _replics21;
 
     [SerializeField] private Animator _animator;
 
@@ -110,6 +119,42 @@ public class Dialog : MonoBehaviour
                 break;
                                         
             case 12:
+                Replic(_replics12);
+                break;
+                                                        
+            case 13:
+                Replic(_replics13);
+                break;
+                                                        
+            case 14:
+                Replic(_replics14);
+                break;
+                                                        
+            case 15:
+                Replic(_replics15);
+                break;
+                                                        
+            case 16:
+                Replic(_replics16);
+                break;
+                                                        
+            case 17:
+                Replic(_replics17);
+                break;
+                                                        
+            case 18:
+                Replic(_replics18);
+                break;
+                                                        
+            case 19:
+                Replic(_replics19);
+                break;
+                                                                        
+            case 20:
+                Replic(_replics12);
+                break;
+                                                                        
+            case 21:
                 Replic(_replics12);
                 break;
 
