@@ -51,7 +51,7 @@ Material:
     - BOOLEAN_USE_WROLDSPACE: 1
     - BOOLEAN_WORLDORIGIN: 0
     - BOOLEAN_WROLDSPACE_OFFEST: 1
-    - Dissolve: -0.09732866
+    - Dissolve: -1
     - _DierctionEdgeWidthScale: 14.46
     - _DirectionMaskScale: 7.34
     - _EdgeColorIntensity: 1
